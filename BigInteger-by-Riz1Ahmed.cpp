@@ -199,30 +199,29 @@ Here I toke arithmetic operations (+,-,/,*)
 logic from the LightOJ forum, written by Jane Alom Jan.
 Because Whether I write the code and exist there some bugs.
 
-This BigInteger is the same as the integer data type.
-But it has unlimited range (actually limit of a string size).
-Because here I used string as a number in BigInt.
-It doesn't work to initialize value when declare variable. suppose,
+This BigInteger as same as the integer data type. But it
+has unlimited range (actually limit of a string size).
+Because here used string as a number in BigInt. It doesn't
+support to initialize value when declare variable. suppose,
 BigInt a=123, b="3435"; will not work.
 But you can use as,
 BitInt a("123"), b=BigInt("3435"), c=BigInt(3435);
 
 Supported operations are:
-Arithmetic: +,+=,++, -,-=,--, *,*=, /,/=.
+Arithmetic: +,+=,X++,++X, -,-=,X--,--X, *,*=, /,/=.
 Logical: <, <=, >. >=, ==, !=.
+Functions: pow(base,pw), pow(base,pw,mod), sqrt() ect.
 
 3 way to possible initialize value:
 i. Using BigInt. (n=b)
 ii. Using string. (n="1234")
 iii. Using Long Long int or Int. (n=12445)
-Also support cin>> to input from user. (cin>>a)
+Also support cin>> to input from user. (cin>>a>>b;)
 
 2 way to possible output:
-i. using cout. (cout<<a)
+i. using cout. (cout<<a<<b<<c<<endl;)
 ii. using built-in print function. (a.print())
 
-N.B: cin>> ans cout<< not work for in multi input or output.
-it's work individually (cin>>a>>b; not work).
 */
 };
 
