@@ -180,23 +180,6 @@ struct Bigint {
         if ((b%2)==0) return (tmp*tmp)%mod;
         else return (((tmp*tmp)%mod)*a)%mod;
     }
-//    friend Bigint pow(Bigint base,Bigint pw,Bigint mod){
-//        if (pw==1) return Bigint(base%mod);
-//        Bigint x=pow(base,pw/2,mod);
-//        x=(x*x)%mod;
-//        if(pw%2==1) return (((x*x)%mod)*base)%mod;
-//        return Bigint((x*x)%mod);
-//    }
-//    friend Bigint pow(Bigint base,Bigint pw,Bigint mod){
-//        Bigint ans=1;
-//        base%=mod;
-//        while(pw!=0){
-//            if (pw%2==1) ans= (ans*base)%mod;
-//            pw/=2, ans=(ans*ans)%mod;
-//        }
-//        return ans;
-//    }
-
     friend Bigint sqrt(Bigint x) {
         Bigint ans=x,tmp=(x+1)/2;
         while (tmp<ans) ans=tmp, tmp=(tmp+x/tmp)/2;
