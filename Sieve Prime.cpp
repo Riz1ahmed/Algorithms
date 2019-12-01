@@ -10,8 +10,7 @@ void sieve(){
 			for (j=i+i; j<mx; j+=i)
 				fl[j]=1;
 	for (i=2,j=1; i<=mx; i++)
-		if (!fl[i])
-			pri[j++]=i;
+		if (!fl[i]) pri[j++]=i;
 }
 int main(){
 	sieve();
