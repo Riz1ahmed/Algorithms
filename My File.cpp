@@ -1,8 +1,3 @@
-/********************
-Riz1 Ahmed, CSE, LU.
-fb.com/riz1ahmed
-Code Start Time: 2020-01-15-01.27
-********************/
 #include<bits/stdc++.h>
 #define read freopen("in.txt","r",stdin);
 #define write freopen("out.txt","w",stdout);
