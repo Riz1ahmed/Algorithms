@@ -1,4 +1,4 @@
-/**Bitwise Sieve && BIT/Frenwick Tree Algorithm (toph.co/p/easy-prime)**\
+/**Bit Sieve && BIT/Frenwick Tree Algorithm (toph.co/p/easy-prime)**\
 Given a N size array & Q query.
 Every Query 2 type:
 1 l r: print total print in range[l:r]
@@ -36,19 +36,19 @@ int query(int idx){
 }
 int main(){
     bitSieve();
-	int n,q,tp,pos,val;
-	while (~scanf("%d",&n)){
+    int n,q,tp,pos,val;
+    while (~scanf("%d",&n)){
         int ar[n+5];
-		for (int i=1; i<=n; i++){
+        for (int i=1; i<=n; i++){
             scanf("%d",&ar[i]);
             if (IsPrime(ar[i])) update(i,1,n);
-		}
-		scanf("%d",&q);
-		while(q--){
-			scanf("%d %d %d",&tp,&pos,&val);
-			if (tp==1) //Here pos=l, val=r.
+        }
+        scanf("%d",&q);
+        while(q--){
+            scanf("%d %d %d",&tp,&pos,&val);
+            if (tp==1) //Here pos=l, val=r.
                 printf("%d\n",query(val)-query(pos-1));
-			else if (tp==2 && IsPrime(val)!=IsPrime(ar[pos])){
-			    ar[pos]=val;
+            else if (tp==2 && IsPrime(val)!=IsPrime(ar[pos])){
+                ar[pos]=val;
                 IsPrime(ar[pos]) ? update(pos,1,n) : update(pos,-1,n);
 }   }   }   }
