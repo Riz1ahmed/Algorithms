@@ -193,11 +193,9 @@ struct Bigint {
     }
 
 /**
-At 1st I'm sorry for my bad english.
-
-Here I toke arithmetic operations (+,-,/,*)
+Here I used most of arithmetic (+,-,/,*)
 logic from the LightOJ forum, written by Jane Alom Jan.
-Because Whether I write the code and exist there some bugs.
+Because whether I write the code and exist there some bugs.
 
 This BigInteger as same as the integer data type. But it
 has unlimited range (actually limit of a string size).
