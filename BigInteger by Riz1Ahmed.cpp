@@ -9,7 +9,7 @@ struct Bigint {
     string a;
     int sign;
 
-    Bigint() {}
+    Bigint(){}
     void operator = (string b) {
         a= (b[0]=='-' ? b.substr(1) : b);
         reverse(a.begin(), a.end());
@@ -33,30 +33,26 @@ struct Bigint {
     bool operator == (Bigint x) {return sign==x.sign && a==x.a;}
     bool operator == (string x) {return *this==Bigint(x);}
     bool operator == (ll x)     {return *this==Bigint(x);}
-
     bool operator != (Bigint x) {return !(*this==x);}
     bool operator != (string x) {return !(*this==x);}
     bool operator != (ll x)     {return !(*this==x);}
 
     bool operator < (Bigint b) {
-    	if (sign!=b.sign) return sign<b.sign;
+        if (sign!=b.sign) return sign<b.sign;
         if(a.size()!=b.size()) return a.size()*sign<b.size()*sign;
         for(int i=a.size()-1; i>=0; i--)
-			if(a[i] != b[i]) return a[i]<b[i];
+            if(a[i] != b[i]) return a[i]<b[i];
         return false;
     }
-    bool operator < (string x) {return *this<Bigint(x);}
-    bool operator < (ll x)     {return *this<Bigint(x);}
-
+    bool operator <  (string x) {return *this<Bigint(x);}
+    bool operator <  (ll x)     {return *this<Bigint(x);}
     bool operator <= (Bigint b) {return *this==b || *this<b;}
     bool operator <= (string b) {return *this==b || *this<b;}
     bool operator <= (ll b)     {return *this==b || *this<b;}
-
-    bool operator > (Bigint b) {return !(*this==b || *this<b);}
-    bool operator > (string x) {return !(*this==x || *this<x);}
-    bool operator > (ll b)     {return !(*this==b || *this<b);}
-
-	bool operator >= (Bigint b) {return *this==b || *this>b;}
+    bool operator >  (Bigint b) {return !(*this==b || *this<b);}
+    bool operator >  (string x) {return !(*this==x || *this<x);}
+    bool operator >  (ll b)     {return !(*this==b || *this<b);}
+    bool operator >= (Bigint b) {return *this==b || *this>b;}
     bool operator >= (string b) {return *this==b || *this>b;}
     bool operator >= (ll b)     {return *this==b || *this>b;}
 
@@ -64,20 +60,20 @@ struct Bigint {
         if(sign != b.sign) return (*this)-b.inverseSign();
         Bigint sum;
         for(int i=0, carry=0; i<a.size() || i<b.size() || carry; i++){
-			if (i<a.size()) carry+=a[i]-'0';
-			if (i<b.size()) carry+=b[i]-'0';
+            if (i<a.size()) carry+=a[i]-'0';
+            if (i<b.size()) carry+=b[i]-'0';
             sum.a += (carry % 10 + 48);
             carry /= 10;
         }
         return sum.Remove0(sign);
     }
-    Bigint operator + (string x) {return *this+Bigint(x);}
-    Bigint operator + (ll x)     {return *this+Bigint(x);}
+    Bigint operator +  (string x) {return *this+Bigint(x);}
+    Bigint operator +  (ll x)     {return *this+Bigint(x);}
     Bigint operator ++ (int) {*this+=1; return *this-1;}
     Bigint operator ++ ()    {*this+=1; return *this;}
-    void operator += (Bigint x) {*this = *this+x;}
-    void operator += (string x) {*this = *this+x;}
-    void operator += (ll x)     {*this = *this+x;}
+      void operator += (Bigint x) {*this = *this+x;}
+      void operator += (string x) {*this = *this+x;}
+      void operator += (ll x)     {*this = *this+x;}
 
 
     Bigint operator - ( Bigint b ) {
@@ -95,9 +91,9 @@ struct Bigint {
     Bigint operator - (ll x)     {return *this-Bigint(x);}
     Bigint operator -- (int) {*this-=1; return *this+1;}
     Bigint operator -- ()    {*this-=1; return *this;}
-    void operator -= (Bigint x) {*this = *this-x;}
-    void operator -= (string x) {*this = *this-x;}
-    void operator -= (ll x)     {*this = *this-x;}
+      void operator -= (Bigint x) {*this = *this-x;}
+      void operator -= (string x) {*this = *this-x;}
+      void operator -= (ll x)     {*this = *this-x;}
 
     Bigint operator * (Bigint b) {
         Bigint mult("0");
@@ -109,9 +105,9 @@ struct Bigint {
     }
     Bigint operator * (string x) {return *this*Bigint(x);}
     Bigint operator * (ll x)     {return *this*Bigint(x);}
-    void operator *= (Bigint x) {*this = *this*x;}
-    void operator *= (string x) {*this = *this*x;}
-    void operator *= (ll x)     {*this = *this*x;}
+      void operator *= (Bigint x) {*this = *this*x;}
+      void operator *= (string x) {*this = *this*x;}
+      void operator *= (ll x)     {*this = *this*x;}
 
     Bigint operator / (Bigint b) {
         if(b.size()==1 && b[0]=='0') b.a[0]/=(b[0]-'0');
@@ -127,9 +123,9 @@ struct Bigint {
     }
     Bigint operator / (string x) {return *this/Bigint(x);}
     Bigint operator / (ll x)     {return *this/Bigint(x);}
-    void operator /= (Bigint x) {*this = *this/x;}
-    void operator /= (string x) {*this = *this/x;}
-    void operator /= (ll x)     {*this = *this/x;}
+      void operator /= (Bigint x) {*this = *this/x;}
+      void operator /= (string x) {*this = *this/x;}
+      void operator /= (ll x)     {*this = *this/x;}
 
     Bigint operator % (Bigint b) {
         if( b.size()==1 && b[0]=='0') b.a[0]/=(b[0]-'0') ;
@@ -144,20 +140,16 @@ struct Bigint {
     }
     Bigint operator % (string x) {return *this%Bigint(x);}
     Bigint operator % (ll x)     {return *this%Bigint(x);}
-    void operator %= (Bigint x) {*this = *this%x;}
-    void operator %= (string x) {*this = *this%x;}
-    void operator %= (ll x)     {*this = *this%x;}
+      void operator %= (Bigint x) {*this = *this%x;}
+      void operator %= (string x) {*this = *this%x;}
+      void operator %= (ll x)     {*this = *this%x;}
 
     void print() {
         if(sign==-1) putchar('-');
         for(int i=a.size()-1; i>=0; i--) putchar(a[i]);
     }
-
     friend istream& operator >>(istream &in,Bigint &x){
-        string s;
-        in>>s;
-        x=s;
-        return in;
+        string s; in>>s; x=s; return in;
     }
     friend ostream& operator <<(ostream &out,Bigint &x){
         if(x.sign==-1) putchar('-');
@@ -169,9 +161,9 @@ struct Bigint {
     friend Bigint pow(Bigint base,Bigint pw){
         Bigint ans=1;
         while(pw!=0){
-        	if(pw%2 !=0) ans*=base;
-			base*=base, pw/=2;
-		}
+            if(pw%2 !=0) ans*=base;
+            base*=base, pw/=2;
+        }
         return ans;
     }
     friend Bigint pow(Bigint a, Bigint b,Bigint mod) {
@@ -186,7 +178,7 @@ struct Bigint {
         return ans;
     }
     friend Bigint gcd(Bigint a,Bigint b){
-        return a%b==0? b: gcd(b, a%b);
+        return a%b==0 ? b : gcd(b, a%b);
     }
     friend Bigint lcm(Bigint a,Bigint b){
         return a/gcd(a,b);
@@ -222,21 +214,9 @@ ii. using built-in print function. (a.print())
 
 */
 };
-
-
-int main() {
-    int t;
-	scanf("%d",&t);
-	while(t--){
-		Bigint a,b,ab,n,ans,M=1000000007;
-		cin>>a>>b>>n;
-		ab=a-b;
-		if (ab==0)
-			ans=(pow(a,n,M)+pow(b,n,M))%M;
-		else
-			ans=(pow(a,n,ab)+pow(b,n,ab))%M,
-			ans=gcd(ans,ab)%M;
-		cout<<ans<<endl;
-	}
-	return 0;
+int main(){
+    Bigint a,b,n,ans,M=1000000007;
+    cin>>a>>b>>n;
+    ans=pow(a,b,n);
+    cout<<ans<<endl;
 }
