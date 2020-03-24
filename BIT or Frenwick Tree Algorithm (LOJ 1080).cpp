@@ -1,3 +1,4 @@
+
 /**BIT/Frenwick Tree Algorithm (LOJ 1080 - Binary Simulation)**\
 Given a binary string S & Q query.
 Every Query 2 type:
@@ -6,25 +7,29 @@ Q i: Print the Bit of S[i] 0 or 1.
 Note: 1-Based Indexed.  **/
 #include<bits/stdc++.h>
 using namespace std;
-int tree[100009];
-void update(int idx,int v,int n){
+int tree[100009],n;
+
+void update(int idx,int val){
     while(idx<=n)
-        tree[idx]+=v,
+        tree[idx]+=val,
+        ///Add equal value of Rightmost 1.
         idx+=(idx& -idx);
 }
 int query(int idx){
     int sum=0;
     while(idx>0)
         sum+=tree[idx],
+        ///Flip rightmost 1 in Binary.
         idx-= (idx& -idx);
     return sum;
 }
 int main(){
     char s[100005],tp[2];
-    int n,q,p,i,j,cs=1;
+    int q,p,i,j,cs=1;
     scanf("%*d");
     while(~scanf("%s",s)){
-        int n=strlen(s), ar[n+5];
+        n=strlen(s);
+        int ar[n+5];
         memset(tree,0,sizeof (int)*(n+5));
         for (i=0; i<n; i++) ar[i+1]=s[i]-'0';
         scanf("%d",&q);
@@ -33,7 +38,7 @@ int main(){
             scanf("%s %d",tp,&i);
             if (tp[0]=='I'){
                 scanf("%d",&j);
-                update(i,1,n), update(j+1,-1,n);
+                update(i,1), update(j+1,-1);
             }else printf("%d\n",ar[i]^(query(i)&1));
         }
     }
