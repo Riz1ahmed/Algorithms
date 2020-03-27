@@ -9,7 +9,8 @@ Note: 1-Based Indexed.  **/
 using namespace std;
 int tree[100009],n;
 
-void update(int idx,int val){
+void update(int idx,int val){){
+    if (!idx) return;
     while(idx<=n)
         tree[idx]+=val,
         ///Add equal value of Rightmost 1.
