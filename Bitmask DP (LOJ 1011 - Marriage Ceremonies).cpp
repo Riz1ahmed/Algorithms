@@ -2,7 +2,7 @@
 Given boys & Girls Chosen priority
 (as ith boy & jth girl priority is prio[i][j]).
 Match the Boy and Girl such that Prority is Maximum.
-Must onr boy choise only one girl.
+Must one boy choise only one girl.
 1 2 3         1 5
 6 5 4         2 1
 8 1 2         Ans=7
