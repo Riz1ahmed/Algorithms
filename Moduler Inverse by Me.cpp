@@ -4,7 +4,7 @@ Riz1 Ahmed, CSE, LU.
 #include<bits/stdc++.h>
 /**
 Problem: (A/B)*C mod P.
-Constraint: A=B=C=P=1e8;
+Constraint: 0< A,B,C,P <=1e8;
 
 Here you will get WA if apply this formula
 normally like (((A/B)%P)*C)%P
