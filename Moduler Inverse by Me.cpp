@@ -10,14 +10,14 @@ Here you will get WA if apply this formula
 normally like (((A/B)%P)*C)%P
 
 See,
-(A/B)*C = A*(1/B)*C = A*B^-1*C.
+(A/B)*C = A*(1/B)*C = A*(B^-1)*C.
 
-Here B^-1 we say Inverse of B or B Inverse.
-and that is called Modular Inverse :).
+Here B^-1 we say 'Inverse of B' or 'B Inverse'.
+And that is called Modular Inverse :).
 B^-1=modInverse(B,P).
 
-So have to apply like (a*modInverse(B,P)%P)*C)%P
-*/
+So have to apply like (A*modInverse(B,P)%P)*C)%P
+---------------------------------------------**/
 
 ///a^n mod M
 ll PowerMod(ll a,ll n,ll M){
