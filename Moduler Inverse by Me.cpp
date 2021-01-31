@@ -9,6 +9,7 @@ Constraint: 0< A,B,C,P <=1e8;
 Here you will get WA if apply this formula
 normally like (((A/B)%P)*C)%P
 
+See,
 (A/B)*C = A*(1/B)*C = A*B^-1*C.
 
 Here B^-1 we say Inverse of B or B Inverse.
